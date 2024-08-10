@@ -8,8 +8,8 @@ datasource db {
 }
 
 model Todo {
-  id          String   @id @default(uuid()) @map("_id")
+  id          String    @id @default(uuid()) @map("_id")
   title       String?
-  isCompleted Boolean  @default(false)
-  craetedAt   DateTime @default(now())
+  isCompleted Boolean   @default(false)
+  createdAt   DateTime? @default(now())
 }
