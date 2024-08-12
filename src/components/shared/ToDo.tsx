@@ -1,6 +1,7 @@
 import { Todo } from '@prisma/client';
 import ChangeTodo from './ChangeTodo';
 import { todoType } from '@/types/todoType';
+import EditTodo from './EditTodo';
 
 const ToDo = ({ todo }: { todo: todoType }) => {
   const todoStyle = {
@@ -14,6 +15,9 @@ const ToDo = ({ todo }: { todo: todoType }) => {
     >
       <ChangeTodo todo={todo} />
       <span className="text-center font-bold uppercase">{todo.title}</span>
+      <div>
+        <EditTodo todo={todo} />
+      </div>
     </div>
   );
 };

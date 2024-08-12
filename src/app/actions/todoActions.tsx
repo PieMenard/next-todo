@@ -44,3 +44,21 @@ export async function changeStatus(formData: FormData) {
 
   return updatedStatus;
 }
+
+export async function edit(formData: FormData) {
+  const input = formData.get('newTitle') as string;
+  const inputId = formData.get('inputId') as string;
+  //skip empty input
+  if (!inputId.trim()) return;
+
+  const todo = await prisma.todo.update({
+    where: {
+      id: inputId,
+    },
+    data: {
+      title: input,
+    },
+  });
+
+  revalidatePath('/');
+}
