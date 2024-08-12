@@ -12,6 +12,7 @@ const EditTodo = ({ todo }: { todo: todoType }) => {
   const [editTodo, setEditTodo] = useState(false);
 
   const handleEdit = () => {
+    if (todo.isCompleted) return;
     setEditTodo(!editTodo);
   };
 
